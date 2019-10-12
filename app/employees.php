@@ -24,6 +24,9 @@ class employees extends Model
         return $this->hasOne("App\departments", 'id' , 'dept_id');
     }
 
+    public function company(){
+        return $this->hasOne("App\companies", 'c_id' , 'comp_id');
+    }
 
     public function getTableColumns() {
         return $this->getConnection()->getSchemaBuilder()->getColumnListing($this->getTable());

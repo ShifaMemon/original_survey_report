@@ -34,4 +34,8 @@ class companies extends Model
     {
         return $this->hasMany('App\departments', 'company_id', 'c_id');
     }
+    public function surveys()
+    {
+        return $this->hasMany('App\survey', 'comp_id', 'c_id');
+    }
 }

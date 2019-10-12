@@ -17,9 +17,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get("employeeCountList", ['uses' => 'Api\ConnectionController@employeeCountList']);
-Route::post("registration", ['uses' => 'Api\ConnectionController@registration']);
-Route::get("deptId/{companyId}", ['uses' => 'Api\ConnectionController@deptId']);
-//Route::post("login", ['uses' => 'Api\ConnectionController@showLogin']);
-Route::post("register_company", ['uses' => 'CompanyController@store_company']);
+
+Route::get("empDetail", ['uses' => 'Api\EmployeeDetail@empDetail']);
+Route::post("EmpLogin", ['uses' => 'Api\EmployeeDetail@EmpLogin']);
+Route::get("empId/{id}", ['uses' => 'Api\EmployeeDetail@empId']);
+Route::get("surveyDetail/{id}", ['uses' => 'Api\SurveyController@surveyDetail']);
+Route::get("survey_id/{id}", ['uses' => 'Api\SurveyController@survey_id']);
+Route::post("save_answer/", ['uses' => 'Api\SurveyController@save_answer']);
 

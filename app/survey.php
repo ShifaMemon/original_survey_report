@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class survey extends Model
 {
-    protected $fillable = [ 'comp_id','s_start_date','s_end_date','survey_title','desc','status',
-     ];
+    protected $fillable = [ 'comp_id','s_start_date','s_end_date','survey_title','desc','status'];
  
  /**
   * The attributes that should be hidden for arrays.
@@ -23,4 +22,10 @@ class survey extends Model
     public function getTableColumns() {
         return $this->getConnection()->getSchemaBuilder()->getColumnListing($this->getTable());
     }
+
+    public function questions(){
+        return $this->hasMany('App\SurveyQuestions', 'survey_id', 'id');
+
+    }
+    
 }
